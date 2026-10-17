@@ -1,21 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const API = "http://localhost:8080/api/courses";
 
 export default function Courses() {
-  const [courses, setCourses] = useState([
-    { id: 1, name: "Data Structures", code: "CS201" },
-    { id: 2, name: "Web Development", code: "CS301" },
-  ]);
+  const [courses, setCourses] = useState([]);
   const [form, setForm] = useState({ name: "", code: "" });
 
-  const addCourse = (e) => {
+  const loadCourses = () =>
+    axios.get(API).then((res) => setCourses(res.data));
+
+  useEffect(() => {
+    loadCourses();
+  }, []);
+
+  const addCourse = async (e) => {
     e.preventDefault();
     if (!form.name || !form.code) return;
-    setCourses([...courses, { id: Date.now(), ...form }]);
+    await axios.post(API, form);
     setForm({ name: "", code: "" });
+    loadCourses();
   };
 
-  const deleteCourse = (id) =>
-    setCourses(courses.filter((c) => c.id !== id));
+  const deleteCourse = async (id) => {
+    await axios.delete(`${API}/${id}`);
+    loadCourses();
+  };
 
   return (
     <div>

@@ -16,3 +16,9 @@ button:hover { background: #1d4ed8; }
 table { width: 100%; background: #fff; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
 th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
 th { background: #e2e8f0; }
+.login-box { max-width: 320px; margin: 100px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.15); display: flex; flex-direction: column; gap: 12px; }
+.login-box form { display: flex; flex-direction: column; gap: 10px; }
+.error { color: #dc2626; }
+.who { font-size: 13px; color: #94a3b8; margin-bottom: 16px; }
+.logout { margin-top: 20px; background: #dc2626; width: 100%; }
+body { background: #f1f5f9; }

@@ -1,24 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const API = "http://localhost:8080/api/students";
 
 export default function Students() {
-  const [students, setStudents] = useState([
-    { id: 1, name: "Amit Patil", roll: "101", course: "Computer" },
-    { id: 2, name: "Sneha Joshi", roll: "102", course: "IT" },
-  ]);
+  const [students, setStudents] = useState([]);
   const [form, setForm] = useState({ name: "", roll: "", course: "" });
+
+  const loadStudents = () =>
+    axios.get(API).then((res) => setStudents(res.data));
+
+  useEffect(() => {
+    loadStudents();
+  }, []);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const addStudent = (e) => {
+  const addStudent = async (e) => {
     e.preventDefault();
     if (!form.name || !form.roll) return;
-    setStudents([...students, { id: Date.now(), ...form }]);
+    await axios.post(API, form);
     setForm({ name: "", roll: "", course: "" });
+    loadStudents();
   };
 
-  const deleteStudent = (id) =>
-    setStudents(students.filter((s) => s.id !== id));
+  const deleteStudent = async (id) => {
+    await axios.delete(`${API}/${id}`);
+    loadStudents();
+  };
 
   return (
     <div>
