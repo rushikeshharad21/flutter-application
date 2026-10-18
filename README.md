@@ -184,7 +184,7 @@ curl -X POST http://localhost:8080/api/auth/register \
 
 ## 👥 Team
 
-Built as a college project by **<Your Name>** and **<Friend's Name>**.
+Built as a college project by **Rushi harad**
 
 ## 📄 License
 
