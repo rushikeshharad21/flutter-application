@@ -5,6 +5,9 @@ import Dashboard from "./pages/Dashboard";
 import Students from "./pages/Students";
 import Courses from "./pages/Courses";
 import Login from "./pages/Login";
+import Notices from "./pages/Notices";
+import Attendance from "./pages/Attendance";
+import Grades from "./pages/Grades";
 
 export default function App() {
   const [user, setUser] = useState(() => {
@@ -26,6 +29,9 @@ export default function App() {
           <Route path="/" element={<Dashboard />} />
           {user.role !== "STUDENT" && <Route path="/students" element={<Students />} />}
           {user.role === "ADMIN" && <Route path="/courses" element={<Courses />} />}
+          {user.role !== "STUDENT" && <Route path="/notices" element={<Notices />} />}
+          {user.role !== "STUDENT" && <Route path="/attendance" element={<Attendance />} />}
+          {user.role !== "STUDENT" && <Route path="/grades" element={<Grades />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>

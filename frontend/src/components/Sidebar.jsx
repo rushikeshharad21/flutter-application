@@ -9,6 +9,9 @@ export default function Sidebar({ user, onLogout }) {
         <NavLink to="/" end>Dashboard</NavLink>
         {user.role !== "STUDENT" && <NavLink to="/students">Students</NavLink>}
         {user.role === "ADMIN" && <NavLink to="/courses">Courses</NavLink>}
+        {user.role !== "STUDENT" && <NavLink to="/notices">Notices</NavLink>}
+        {user.role !== "STUDENT" && <NavLink to="/attendance">Attendance</NavLink>}
+        {user.role !== "STUDENT" && <NavLink to="/grades">Grades</NavLink>}
       </nav>
       <button className="logout" onClick={onLogout}>Logout</button>
     </aside>

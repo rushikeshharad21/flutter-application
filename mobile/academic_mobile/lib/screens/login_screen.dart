@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } catch (e) {
       setState(() {
-        _error = 'Login अयशस्वी: चुकीचे username/password किंवा सर्व्हर बंद आहे';
+                _error = 'Login अयशस्वी: $e';
       });
     } finally {
       if (mounted) setState(() => _loading = false);
