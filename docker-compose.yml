@@ -1,0 +1,9 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: https://flutter-application-tzsj.onrender.com
+    ports:
+      - "3000:80"
+    restart: unless-stopped
