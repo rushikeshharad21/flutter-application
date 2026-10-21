@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
-const API = "http://localhost:8080/api/notices";
+const API = `${BASE_URL}/api/notices`;
 
 export default function Notices() {
   const [notices, setNotices] = useState([]);

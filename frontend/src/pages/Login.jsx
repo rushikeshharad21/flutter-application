@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
 export default function Login({ onLogin }) {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -9,7 +10,7 @@ export default function Login({ onLogin }) {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", form);
+          const res = await axios.post(`${BASE_URL}/api/auth/login`, form);
       localStorage.setItem("user", JSON.stringify(res.data));
       onLogin(res.data);
     } catch {

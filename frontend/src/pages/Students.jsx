@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
-const API = "http://localhost:8080/api/students";
+const API = `${BASE_URL}/api/students`;
 
 export default function Students() {
   const [students, setStudents] = useState([]);
@@ -40,7 +41,7 @@ export default function Students() {
         <input name="course" placeholder="Course" value={form.course} onChange={handleChange} />
         <button type="submit">Add Student</button>
       </form>
-
+<div className="table-wrap">
       <table>
         <thead>
           <tr><th>Roll</th><th>Name</th><th>Course</th><th>Action</th></tr>
@@ -56,6 +57,7 @@ export default function Students() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config"
 
-const API = "http://localhost:8080/api/attendance";
+const API = `${BASE_URL}/api/attendance`;
 
 export default function Attendance() {
   const [records, setRecords] = useState([]);
@@ -62,7 +63,7 @@ export default function Attendance() {
         </select>{" "}
         <button type="submit">Add</button>
       </form>
-
+<div className="table-wrap">
       <table>
         <thead>
           <tr>
@@ -87,6 +88,7 @@ export default function Attendance() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

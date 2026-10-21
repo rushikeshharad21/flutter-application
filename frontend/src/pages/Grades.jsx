@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
-const API = "http://localhost:8080/api/grades";
+const API = `${BASE_URL}/api/grades`;
 
 export default function Grades() {
   const [records, setRecords] = useState([]);
@@ -81,7 +82,7 @@ export default function Grades() {
         />{" "}
         <button type="submit">Add</button>
       </form>
-
+<div className="table-wrap">
       <table>
         <thead>
           <tr>
@@ -108,6 +109,7 @@ export default function Grades() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

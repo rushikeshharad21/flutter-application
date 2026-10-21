@@ -22,3 +22,73 @@ th { background: #e2e8f0; }
 .who { font-size: 13px; color: #94a3b8; margin-bottom: 16px; }
 .logout { margin-top: 20px; background: #dc2626; width: 100%; }
 body { background: #f1f5f9; }
+
+
+/* ---------- Responsive ---------- */
+
+/* Desktop: topbar आणि overlay लपवा */
+.topbar { display: none; }
+.overlay { display: none; }
+
+/* Table scroll साठी wrapper */
+.table-wrap { width: 100%; overflow-x: auto; border-radius: 8px; }
+.table-wrap table { min-width: 560px; }
+
+/* Mobile / Tablet */
+@media (max-width: 768px) {
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    padding: 0 12px;
+    background: #1e293b;
+    color: #fff;
+    z-index: 30;
+    font-weight: bold;
+  }
+  .menu-btn { font-size: 20px; padding: 6px 12px; }
+
+  .layout { display: block; }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 40;
+  }
+
+  .content { padding: 70px 14px 20px; }
+
+  h1 { font-size: 22px; }
+
+  .cards { flex-direction: column; gap: 12px; }
+  .card { min-width: 0; width: 100%; }
+
+  .form { flex-direction: column; }
+  .form input,
+  .form select,
+  .form button { width: 100%; }
+
+  th, td { padding: 10px 8px; font-size: 14px; }
+
+  .login-box { margin: 40px 16px; max-width: none; }
+}

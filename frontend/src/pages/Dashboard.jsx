@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
 export default function Dashboard() {
   const [stats, setStats] = useState(null);
@@ -7,7 +8,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/stats")
+       .get(`${BASE_URL}/api/stats`)
       .then((res) => setStats(res.data))
       .catch(() => setError("Stats मिळाले नाहीत. Backend चालू आहे का?"));
   }, []);

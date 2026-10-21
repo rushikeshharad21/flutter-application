@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
-const API = "http://localhost:8080/api/courses";
+const API = `${BASE_URL}/api/courses`;
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);
@@ -44,7 +45,7 @@ export default function Courses() {
         />
         <button type="submit">Add Course</button>
       </form>
-
+<div className="table-wrap">
       <table>
         <thead>
           <tr><th>Code</th><th>Name</th><th>Action</th></tr>
@@ -59,6 +60,7 @@ export default function Courses() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
