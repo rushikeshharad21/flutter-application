@@ -26,6 +26,7 @@ export default function Sidebar({ user, onLogout }) {
           {user.role !== "STUDENT" && <NavLink to="/notices">Notices</NavLink>}
           {user.role !== "STUDENT" && <NavLink to="/attendance">Attendance</NavLink>}
           {user.role !== "STUDENT" && <NavLink to="/grades">Grades</NavLink>}
+          {user.role === "ADMIN" && <NavLink to="/users">Users</NavLink>}
         </nav>
         <button className="logout" onClick={onLogout}>Logout</button>
       </aside>

@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Notices from "./pages/Notices";
 import Attendance from "./pages/Attendance";
 import Grades from "./pages/Grades";
+import Users from "./pages/Users";
 
 export default function App() {
   const [user, setUser] = useState(() => {
@@ -32,6 +33,7 @@ export default function App() {
           {user.role !== "STUDENT" && <Route path="/notices" element={<Notices />} />}
           {user.role !== "STUDENT" && <Route path="/attendance" element={<Attendance />} />}
           {user.role !== "STUDENT" && <Route path="/grades" element={<Grades />} />}
+          {user.role === "ADMIN" && <Route path="/users" element={<Users />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
